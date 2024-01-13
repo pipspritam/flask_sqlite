@@ -89,6 +89,29 @@ def show_all_employee():
         return jsonify(employee_list), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+@app.route('/login', methods=['POST'])
+def login():
+    try:
+        data = request.get_json()
+        empid = data['empid']
+        password = data['password']
+
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+
+        # Retrieve employee data based on empid
+        cursor.execute('SELECT * FROM employee WHERE empid = ?', (empid,))
+        user_data = cursor.fetchone()
+
+        conn.close()
+
+        if user_data and user_data[3] == password:
+            return jsonify('allow'), 200
+        else:
+            return jsonify({'message': 'Invalid empid or password'}), 401
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

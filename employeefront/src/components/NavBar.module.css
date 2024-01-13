@@ -1,0 +1,32 @@
+.navcontainer {
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    background-color: #cc0000;
+    align-items: center;
+    
+}
+
+.logo {
+    margin-left: 5%;
+}
+
+.login {
+    margin-right: 5%;
+    
+}
+
+.login button {
+    height: 35px;
+    width: 100px;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: medium;
+    border: none;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
