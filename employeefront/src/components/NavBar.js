@@ -15,4 +15,7 @@ function NavBar({loggedIn}) {
     );
 }
 
+
+
+
 export default NavBar;
