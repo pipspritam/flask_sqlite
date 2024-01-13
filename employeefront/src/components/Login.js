@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import Home from "./Home";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../Context/UserContextProvider";
 
 function Login({onLoggedIn,onUserDetails}) {
 
@@ -9,6 +10,7 @@ function Login({onLoggedIn,onUserDetails}) {
     const [empid, setempid] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const {loginUser}=useUser();
 
 
     const handleId = (e) => {
@@ -25,7 +27,8 @@ function Login({onLoggedIn,onUserDetails}) {
             const response = await axios.post('http://127.0.0.1:5000/login', { empid, password });
             const { message, employee } = response.data;
             if (message === 'allow') {
-                sessionStorage.setItem('empDetails', JSON.stringify(employee));
+                loginUser(employee)
+                //sessionStorage.setItem('empDetails', JSON.stringify(employee));
                 navigate('/home');
             } 
             

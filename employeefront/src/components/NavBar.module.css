@@ -13,17 +13,22 @@
 
 .login {
     margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
 .login button {
-    height: 35px;
+    height: 40px;
     width: 100px;
     font-weight: bold;
     border-radius: 10px;
     font-size: medium;
     border: none;
     cursor: pointer;
+    margin: 5px;
+    
 }
 
 .link {
