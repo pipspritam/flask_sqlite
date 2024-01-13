@@ -1,7 +1,10 @@
-function Home({empDetails}) {
+function Home() {
+    const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
+    const loggedIn = !!empDetails;
+
     return (
         <h1>
-            Welcome {empDetails.empname}
+            {loggedIn ? `Welcome ${empDetails.empname}` : 'Please login to continue'}
         </h1>
     );
 }

@@ -9,7 +9,7 @@ function Login({onLoggedIn,onUserDetails}) {
     const [empid, setempid] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    //const [loggedIn,setLoggedIn]=useState(false)
+
 
     const handleId = (e) => {
         setempid(e.target.value);
@@ -24,9 +24,8 @@ function Login({onLoggedIn,onUserDetails}) {
         try {
             const response = await axios.post('http://127.0.0.1:5000/login', { empid, password });
             const { message, employee } = response.data;
-            onLoggedIn(true)
-            onUserDetails(employee)
             if (message === 'allow') {
+                sessionStorage.setItem('empDetails', JSON.stringify(employee));
                 navigate('/home');
             } 
             

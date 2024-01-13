@@ -111,7 +111,7 @@ def login():
                 'empid': user_data[0],
                 'empname': user_data[1],
                 'storage_size': user_data[2],
-                # Add other details as needed
+                
             }
             return jsonify({'message': 'allow','employee': employee_details}), 200
         else:
