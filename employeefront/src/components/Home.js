@@ -3,9 +3,19 @@ function Home() {
     const loggedIn = !!empDetails;
 
     return (
-        <h1>
-            {loggedIn ? `Welcome ${empDetails.empname}` : 'Please login to continue'}
-        </h1>
+        
+        <div>
+            {loggedIn ? <div>
+                <h1>Welcome {empDetails.empname} </h1>
+                <p>EmpId:{empDetails.empid}</p>
+                <p>Storage size:{empDetails.storage_size}</p>
+                <button>Increase storage</button>
+                <button>Clear storage</button>
+
+                </div>
+                : <h1>Please login to continue</h1>}
+        
+        </div>
     );
 }
 
