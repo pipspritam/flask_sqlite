@@ -1,7 +1,7 @@
-function Home() {
+function Home({empDetails}) {
     return (
         <h1>
-            Welcome
+            Welcome {empDetails.empname}
         </h1>
     );
 }

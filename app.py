@@ -107,7 +107,13 @@ def login():
         conn.close()
 
         if user_data and user_data[3] == password:
-            return jsonify('allow'), 200
+            employee_details = {
+                'empid': user_data[0],
+                'empname': user_data[1],
+                'storage_size': user_data[2],
+                # Add other details as needed
+            }
+            return jsonify({'message': 'allow','employee': employee_details}), 200
         else:
             return jsonify({'message': 'Invalid empid or password'}), 401
     except Exception as e:
