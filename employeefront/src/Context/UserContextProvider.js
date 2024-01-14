@@ -1,3 +1,5 @@
+//currently not in use as we use session storage to store user details
+
 // UserContext.js
 import { createContext, useState ,useContext} from 'react';
 

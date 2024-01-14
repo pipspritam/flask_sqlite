@@ -27,8 +27,8 @@ function Login({onLoggedIn,onUserDetails}) {
             const response = await axios.post('http://127.0.0.1:5000/login', { empid, password });
             const { message, employee } = response.data;
             if (message === 'allow') {
-                loginUser(employee)
-                //sessionStorage.setItem('empDetails', JSON.stringify(employee));
+                // loginUser(employee)
+                sessionStorage.setItem('empDetails', JSON.stringify(employee));
                 navigate('/home');
             } 
             

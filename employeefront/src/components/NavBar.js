@@ -5,9 +5,9 @@ import { useUser } from "../Context/UserContextProvider";
 
 function NavBar() {
     const navigate = useNavigate()
-    // const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
+    const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
     // const loggedIn = !!empDetails;
-    const {empDetails}=useUser()
+    // const {empDetails}=useUser()
     const handleLogout=()=>{
         sessionStorage.removeItem('empDetails')
         navigate('/')

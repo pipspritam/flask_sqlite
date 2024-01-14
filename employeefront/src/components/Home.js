@@ -1,9 +1,9 @@
 import { useUser } from "../Context/UserContextProvider";
 
 function Home() {
-    //const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
-    //const loggedIn = !!empDetails;
-    const {empDetails}=useUser()
+    const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
+    const loggedIn = !!empDetails;
+    // const {empDetails}=useUser()
 
     return (
         
