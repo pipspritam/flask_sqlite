@@ -108,6 +108,50 @@ def modify_storage():
         return jsonify({"error": str(e)}), 500
     
 
+@app.route("/create_storage", methods=["PUT"])
+def create_storage():
+    try:
+        data = request.get_json()
+        empid = data["empid"]
+
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT * FROM employee WHERE empid = ?", (empid,))
+        user_data = cursor.fetchone()
+
+        if user_data:
+
+            # Update storage size for the specified employee
+            cursor.execute(
+                "UPDATE employee SET storage_size = ? WHERE empid = ?",
+                (
+                    100,
+                    empid,
+                ),
+            )
+
+            conn.commit()
+
+            cursor.execute("SELECT * FROM employee WHERE empid = ?", (empid,))
+            user_data = cursor.fetchone()
+            conn.close()
+
+            return (
+                jsonify(
+                    {
+                        "message": "Storage created successfully",
+                        "user_data": user_data,
+                    }
+                ),
+                200,
+            )
+        else:
+            return jsonify({"error": "Employee not found"}), 404
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 
 
 @app.route("/clear_storage", methods=["PUT"])
