@@ -19,7 +19,7 @@ function NavBar() {
             <Link className={styles.link} to='/'><h1>Texas Instruments</h1></Link>
             </div>
             <div className={styles.login}>
-                {empDetails ?<><Link to='/home'><button>{empDetails.empname}</button></Link>
+                {empDetails ?<><Link to='/home' className={styles.link}><h3 >{empDetails.empname}</h3></Link>
                 <button onClick={handleLogout}>LogOut</button>
                 </> : <Link to='/login' ><button>Login</button></Link>}
             

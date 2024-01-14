@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import styles from './Home.module.css'
 
 function Home() {
     const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
@@ -79,7 +80,7 @@ function Home() {
 
     
     return (
-        <div>
+        <div className={styles.homeContainer}>
             {empDetails ? (
                 <div>
                     <h1>Welcome {empDetails.empname} </h1>
