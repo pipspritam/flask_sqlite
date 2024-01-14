@@ -11,6 +11,26 @@ function Home() {
 
     const empid = empDetails.empid;
 
+    const handleClearStorage = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.put('http://127.0.0.1:5000/clear_storage', { empid });
+            const response1 = await axios.get(`http://127.0.0.1:5000/show_employee/${empid}`);
+            const updatedEmpDetailsf = response1.data;
+
+            // Update sessionStorage
+            sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetailsf));
+
+            // Update component state if needed
+            setStoragePercentage(0);
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
+
     const handleModifyStorage = async (e) => {
         e.preventDefault();
         try {
@@ -42,7 +62,7 @@ function Home() {
                     <div>
                         <input type="number" placeholder="Enter new storage size" onChange={handleStoragePercentage} value={storage_percentage}></input>
                         <button onClick={handleModifyStorage}>Increase storage</button><br></br>
-                        <button>Clear storage</button>
+                        <button onClick={handleClearStorage}>Clear storage</button>
                     </div>
                 </div>
             ) : (
