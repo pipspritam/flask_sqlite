@@ -106,6 +106,32 @@ def modify_storage():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
+@app.route("/show_employee/<int:empid>", methods=["GET"])
+def show_employee(empid):
+    try:
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+
+        # Use a parameterized query to prevent SQL injection
+        cursor.execute("SELECT * FROM employee WHERE empid=?", (empid,))
+        employee = cursor.fetchone()
+
+        conn.close()
+
+        if employee:
+            employee_dict = {
+                "empid": employee[0],
+                "empname": employee[1],
+                "storage_size": employee[2],
+            }
+            return jsonify(employee_dict), 200
+        else:
+            return jsonify({"error": f"Employee with empid {empid} not found"}), 404
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route("/show_all_employee", methods=["GET"])
