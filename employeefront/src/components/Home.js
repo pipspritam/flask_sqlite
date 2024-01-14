@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
+import styles from './Home.module.css'
 
 function Home() {
     const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
     const [storage_percentage, setStoragePercentage] = useState(0);
+    const [componentMounted,setComponentMounted]=useState(false)
 
     const handleStoragePercentage = (e) => {
         setStoragePercentage(e.target.value);
     };
 
+    useEffect(()=>{
+        console.log("component mount")
+    },[componentMounted])
     const empid = empDetails.empid;
 
     const handleClearStorage = async (e) => {
@@ -18,11 +23,12 @@ function Home() {
             const response1 = await axios.get(`http://127.0.0.1:5000/show_employee/${empid}`);
             const updatedEmpDetailsf = response1.data;
 
-            // Update sessionStorage
+            
             sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetailsf));
+            //setStoragePercentage(0);
+            setComponentMounted(!componentMounted)
 
-            // Update component state if needed
-            setStoragePercentage(0);
+            
 
         } catch (error) {
             console.log(error);
@@ -38,11 +44,12 @@ function Home() {
             const response1 = await axios.get(`http://127.0.0.1:5000/show_employee/${empid}`);
             const updatedEmpDetails = response1.data;
 
-            // Update sessionStorage
+            
             sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetails));
 
-            // Update component state if needed
+            
             setStoragePercentage(0);
+            setComponentMounted(!componentMounted)
 
             console.log(updatedEmpDetails);
         } catch (error) {
@@ -50,8 +57,30 @@ function Home() {
         }
     }
 
+    const handleCreateStorage = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.put('http://127.0.0.1:5000/create_storage', { empid });
+            const response1 = await axios.get(`http://127.0.0.1:5000/show_employee/${empid}`);
+            const updatedEmpDetails = response1.data;
+
+            // Update sessionStorage
+            sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetails));
+
+           
+
+            console.log(updatedEmpDetails);
+            //setStoragePercentage(0);
+            setComponentMounted(!componentMounted)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    
     return (
-        <div>
+        <div className={styles.homeContainer}>
             {empDetails ? (
                 <div>
                     <h1>Welcome {empDetails.empname} </h1>
@@ -60,6 +89,7 @@ function Home() {
                         <p>Storage size: {empDetails.storage_size}</p>
                     </div>
                     <div>
+                    <button onClick={handleCreateStorage}>Create Storage</button><br></br>
                         <input type="number" placeholder="Enter new storage size" onChange={handleStoragePercentage} value={storage_percentage}></input>
                         <button onClick={handleModifyStorage}>Increase storage</button><br></br>
                         <button onClick={handleClearStorage}>Clear storage</button>
