@@ -4,6 +4,7 @@ import axios from 'axios';
 function Home() {
     const empDetails = JSON.parse(sessionStorage.getItem('empDetails'));
     const [storage_percentage, setStoragePercentage] = useState(0);
+    const [componentMounted,setComponentMounted]=useState(false)
 
     const handleStoragePercentage = (e) => {
         setStoragePercentage(e.target.value);
@@ -11,7 +12,7 @@ function Home() {
 
     useEffect(()=>{
         console.log("component mount")
-    },[storage_percentage])
+    },[componentMounted])
     const empid = empDetails.empid;
 
     const handleClearStorage = async (e) => {
@@ -23,7 +24,8 @@ function Home() {
 
             
             sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetailsf));
-            setStoragePercentage(1);
+            //setStoragePercentage(0);
+            setComponentMounted(!componentMounted)
 
             
 
@@ -46,6 +48,7 @@ function Home() {
 
             
             setStoragePercentage(0);
+            setComponentMounted(!componentMounted)
 
             console.log(updatedEmpDetails);
         } catch (error) {
@@ -66,7 +69,8 @@ function Home() {
            
 
             console.log(updatedEmpDetails);
-            setStoragePercentage(0);
+            //setStoragePercentage(0);
+            setComponentMounted(!componentMounted)
 
         } catch (error) {
             console.log(error);
