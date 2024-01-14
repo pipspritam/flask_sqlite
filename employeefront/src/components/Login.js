@@ -3,6 +3,7 @@ import axios from 'axios';
 import Home from "./Home";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../Context/UserContextProvider";
+import styles from './Login.module.css'
 
 function Login({onLoggedIn,onUserDetails}) {
 
@@ -44,12 +45,15 @@ function Login({onLoggedIn,onUserDetails}) {
     return (
         <form onSubmit={handleSubmit}>
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-
-            <label>Username: </label>
+            <div className={styles.bodyc}>
+            <div className={styles.container}> 
+            <label>Username </label>
             <input type="text" onChange={handleId} /><br />
-            <label>Password: </label>
+            <label>Password </label>
             <input type="password" onChange={handlePass} /><br />
             <button type="submit">Login</button>
+            </div>
+            </div>
         </form>
     );
 }

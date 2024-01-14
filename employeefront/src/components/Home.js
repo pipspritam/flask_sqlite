@@ -10,7 +10,6 @@ function Home() {
     const handleStoragePercentage = (e) => {
         setStoragePercentage(e.target.value);
     };
-
     useEffect(()=>{
         console.log("component mount")
     },[componentMounted])
@@ -22,20 +21,15 @@ function Home() {
             const response = await axios.put('http://127.0.0.1:5000/clear_storage', { empid });
             const response1 = await axios.get(`http://127.0.0.1:5000/show_employee/${empid}`);
             const updatedEmpDetailsf = response1.data;
-
             
             sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetailsf));
             //setStoragePercentage(0);
             setComponentMounted(!componentMounted)
 
-            
-
         } catch (error) {
             console.log(error);
         }
-
     }
-
 
     const handleModifyStorage = async (e) => {
         e.preventDefault();
@@ -43,11 +37,8 @@ function Home() {
             const response = await axios.put('http://127.0.0.1:5000/modify_storage', { empid, storage_percentage });
             const response1 = await axios.get(`http://127.0.0.1:5000/show_employee/${empid}`);
             const updatedEmpDetails = response1.data;
-
             
             sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetails));
-
-            
             setStoragePercentage(0);
             setComponentMounted(!componentMounted)
 
@@ -66,9 +57,6 @@ function Home() {
 
             // Update sessionStorage
             sessionStorage.setItem('empDetails', JSON.stringify(updatedEmpDetails));
-
-           
-
             console.log(updatedEmpDetails);
             //setStoragePercentage(0);
             setComponentMounted(!componentMounted)
