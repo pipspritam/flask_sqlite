@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './Context/UserContextProvider';
+import OutlinedCard from './components/quota';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,7 @@ root.render(
     <UserProvider>
     <BrowserRouter>
     
-    <App />
+    <OutlinedCard />
     </BrowserRouter>
     </UserProvider>
   </React.StrictMode>
