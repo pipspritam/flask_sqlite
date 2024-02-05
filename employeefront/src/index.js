@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './Context/UserContextProvider';
 import OutlinedCard from './components/quota';
+import Loading from './components/Loading';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +16,7 @@ root.render(
     <BrowserRouter>
     
     <OutlinedCard />
+   
     </BrowserRouter>
     </UserProvider>
   </React.StrictMode>
