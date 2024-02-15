@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './Context/UserContextProvider';
 import OutlinedCard from './components/quota';
 import Loading from './components/Loading';
+import Dashboard from './components/dashbord';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,7 +16,7 @@ root.render(
     <UserProvider>
     <BrowserRouter>
     
-    <OutlinedCard />
+    <Dashboard/>
    
     </BrowserRouter>
     </UserProvider>

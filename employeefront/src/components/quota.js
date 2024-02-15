@@ -1,65 +1,30 @@
-import React, { useState } from 'react';
-import { TextField, FormControlLabel, Checkbox, Button, Grid } from '@mui/material';
+import React from 'react';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import LinearProgress from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box';
 
-export default function OutlinedCard() {
-  const [ip, setIp] = useState('');
-  const [read, setRead] = useState(false);
-  const [write, setWrite] = useState(false);
-  const [superUserChecked, setSuperUserChecked] = useState(true);
-
-  const handleIpChange = (event) => {
-    setIp(event.target.value);
-  };
-
-  const handleReadChange = (event) => {
-    setRead(event.target.checked);
-  };
-
-  const handleWriteChange = (event) => {
-    setWrite(event.target.checked);
-  };
-
-  const handleSuperUserChange = (event) => {
-    const isChecked = event.target.checked;
-    setSuperUserChecked(isChecked);
-  };
-
-  const handleSubmit = (event) => {
-    console.log('IP: ' + ip);
-    console.log('Read: ' + read);
-    console.log('Write: ' + write);
-    console.log('Super user: ' + superUserChecked);
-  };
+export default function Quota() {
+  
+  const totalSize = 1000;
+  const usedSize = 700;
+  const availableSize = totalSize - usedSize;
+  const usedPercentage = Math.round((usedSize / totalSize) * 100);
 
   return (
-    <Grid sx={{ marginTop: '2em' }}>
-      <TextField
-        id="outlined-basic"
-        label="Host name / IP Address"
-        inputProps={{ type: 'text' }}
-        variant="outlined"
-        placeholder="Host name / IP Address"
-        required
-        onChange={handleIpChange}
-      />
-      <FormControlLabel
-        control={<Checkbox />}
-        label="Read"
-        onChange={handleReadChange}
-      />
-      <FormControlLabel
-        control={<Checkbox />}
-        label="Write"
-        onChange={handleWriteChange}
-      />
-      <FormControlLabel
-        required
-        control={<Checkbox  checked={superUserChecked} onChange={handleSuperUserChange} />}
-        label={<span style={{ color: superUserChecked ? '' : 'red' }}>Super user</span>}
-      />
-      <Button onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Grid>
+    <Paper elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
+      <Typography variant="body1">Available: {availableSize} MB</Typography>
+      <Typography variant="body1">Total: {totalSize} MB</Typography>
+      <Typography variant="body1">Used: {usedSize} MB</Typography>
+      <Box display="flex" alignItems="center">
+        <LinearProgress
+          variant="determinate"
+          value={(usedSize / totalSize) * 100}
+          style={{ marginTop: '10px', height: '10px', width: '80%' }} 
+        />
+        <Typography variant="body2" color="textSecondary" style={{ marginLeft: '5px' }}>{usedSize} MB</Typography>
+      </Box>
+      <Typography variant="body2" color="textSecondary" style={{ marginTop: '10px' }}>{usedPercentage}% Used</Typography>
+    </Paper>
   );
 }

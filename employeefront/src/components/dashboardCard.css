@@ -1,0 +1,51 @@
+.row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2em;
+    margin-top: 1em;
+}
+
+.card {
+    display: flex;
+    padding: 10px;
+    background-color: transparent;
+    box-shadow: 0 0 10px 10px #dedddd;
+    font-weight: 500;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+    min-height: 100%;
+    margin-bottom: 2em;
+}
+
+.body {
+    flex: 1;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+}
+
+@media (min-width: 400px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 700px) {
+    .row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
