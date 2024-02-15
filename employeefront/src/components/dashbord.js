@@ -98,7 +98,6 @@ const serviceCatalogs = [
     }
 ];
 
-
 function Dashboard() {
     return (
         <div>
@@ -125,7 +124,7 @@ function Dashboard() {
                                             </div>
                                             <div style={{ textAlign: 'center', marginTop: '1em' }}>
                                                 <CardTitle tag="h4">{firstQ.name}</CardTitle>
-                                                <CardText>{firstQ.details}</CardText>
+                                                <CardText style={{ textAlign: 'left' }}>{firstQ.details}</CardText> {/* Updated alignment */}
                                             </div>
                                         </div>
                                     </CardBody>
@@ -158,7 +157,7 @@ function Dashboard() {
                                             </div>
                                             <div style={{ textAlign: 'center', marginTop: '1em' }}>
                                                 <CardTitle tag="h4">{quicklink.name}</CardTitle>
-                                                <CardText>{quicklink.details}</CardText>
+                                                <CardText style={{ textAlign: 'left' }}>{quicklink.details}</CardText> {/* Updated alignment */}
                                             </div>
                                         </div>
                                     </CardBody>
@@ -191,7 +190,7 @@ function Dashboard() {
                                             </div>
                                             <div style={{ textAlign: 'center', marginTop: '1em' }}>
                                                 <CardTitle tag="h4">{servicecatalog.name}</CardTitle>
-                                                <CardText>{servicecatalog.details}</CardText>
+                                                <CardText style={{ textAlign: 'left' }}>{servicecatalog.details}</CardText> {/* Updated alignment */}
                                             </div>
                                         </div>
                                     </CardBody>
@@ -204,6 +203,7 @@ function Dashboard() {
         </div>
     );
 }
+
 
 
 
