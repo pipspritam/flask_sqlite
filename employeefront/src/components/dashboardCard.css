@@ -23,7 +23,7 @@
     align-items: center;
     font-weight: 500;
     font-size: 16px;
-    text-align: left; /* Updated to left alignment */
+    text-align: center; 
 }
 
 @media (min-width: 400px) {
