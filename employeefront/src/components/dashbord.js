@@ -2,9 +2,8 @@ import React from 'react';
 import { Col, Row, Card, CardBody, CardText, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './dashboardCard.css';
-import { Avatar } from '@mui/material';
+import { Avatar, Dialog, DialogActions, DialogTitle, Button } from '@mui/material';
 import DonutSmallIcon from '@mui/icons-material/DonutSmall';
-import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import SpeedIcon from '@mui/icons-material/Speed';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart } from 'chart.js';
@@ -110,6 +109,21 @@ function Dashboard() {
                 </Col>
             ))}
         </Row>
+        <Dialog  open sx={{ borderRadius: '5px' }}>
+        <DialogActions>
+    <Link to="/dashboard" style={{ textDecoration: 'none', color: 'inherit', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)', width: '50%', textAlign: 'center' }}>
+        <DialogTitle>Capacity Metrics</DialogTitle>
+    </Link>
+    <Link to="/dashboard" style={{ textDecoration: 'none', color: 'inherit', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)', width: '50%', textAlign: 'center' }}>
+        <DialogTitle>Performance Metrics</DialogTitle>
+    </Link>
+</DialogActions>
+            <DialogActions>
+                    <Button  color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
+        </Dialog>
     </div>
     
 
