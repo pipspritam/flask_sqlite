@@ -1,37 +1,64 @@
-User Manual: Portal Features
+Storage Self Service - NAS User Manual
 
-Welcome to the user manual for our portal, designed to facilitate efficient management of client access, share creation, quota adjustments, and share deletion. Below are detailed instructions for each feature:
+Welcome to the user manual for Storage Self Service – NAS, designed to facilitate efficient management of client access configuration, share creation, quota resize, and share deletion. Below are detailed instructions for each feature:
+
+Table of Contents
+
+Add/Remove Client Access
+Create Share
+Quota Increase
+Delete Share
 
 1. Add/Remove Client Access:
 
 This feature allows you to manage client access to shares. Follow these steps:
 
-Search for Share: Enter the mount path of the share you wish to manage. If not found, specify the volume and qtree name.
-View Current Clients: See the current list of clients with access to the share.
-Options: Choose to add or remove a client.
-Add Client: Provide the hostname/IP/subnet and specify read or write access. Include a business justification. A request will be raised for admin approval, and you will be notified via email upon approval.
+- Search for Share: Enter the mount path of the share you wish to manage. The dropdown will display the list of mount paths; please select the appropriate one. If not found, kindly provide the last part after :/volume_name/qtree_name.
+
+    For example: If the complete mount path is like xlecdot-dm1.itg.ti.com:/vol_pritam/q_pritam, please provide "vol_pritam/q_pritam" accordingly.
+
+- View Current Clients: View the current list of clients with access to the share. Here, "any" denotes yes, and "never" denotes no.
+
+- Options: Choose to add or remove a client.
+
+    - Add Client: Provide the hostname/IP/subnet and specify read or write access. Include a business justification. A request will be raised for admin approval, and you will be notified via email upon approval. Please refrain from raising multiple requests.
+
+    - Remove Client: Select the hostname/IP/subnet that you want to remove from the share. Again, a request will be raised for admin approval, and you will be notified via email upon approval. Please avoid raising multiple requests.
+
 2. Create Share:
 
 This feature enables you to create a new share. Here's how:
 
-Select Site and Vertical: Choose the site and vertical for the new share.
-Provide Details: Name the share, specify its capacity, and list the hostnames/clients/ips/subnets to be attached. Define access configurations.
-Additional Information: Provide use case, business justification, primary owner, and secondary owner (which can be a team mailing list).
-Request Approval: Submit the request. Upon admin approval, you'll receive the mount path via email.
+- Select Site and IT Vertical: Choose the site and IT vertical for the new share. Here is the full list of Site and IT Vertical.
+
+- Provide Details: Name the share, specify its capacity, and list the hostnames/clients/ips/subnets. Define access configurations accordingly.
+
+- Additional Information: Provide use case, business justification, primary owner (which can be a team mailing list), and secondary owner (which can be a team mailing list).
+
+- Request Approval: Submit the request. Upon admin approval, you'll receive the mount path via email.
+
 3. Quota Increase:
 
 Use this feature to increase the quota of a share. Here's what to do:
 
-Select Mount Path: Choose the mount path from the dropdown list.
-View Current Usage: See the current usage of the selected share.
-Enter Extra Amount: Specify the additional amount in GB and provide a business justification.
-Request Approval: Submit the request. After admin approval, you'll be notified.
+- Search for Share: Enter the mount path of the share you wish to manage. The dropdown will show you the list of mount paths; please select the appropriate one. If not found, kindly provide the last part after :/volume_name/qtree_name.
+
+- View Current Usage: See the current usage of the selected share.
+
+- Enter capacity that you want: Specify the additional amount in GB and provide a business justification.
+
+- Request Approval: Submit the request. After admin approval, you'll be notified via email.
+
 4. Delete Share:
 
 This feature allows you to delete unused shares. Follow these steps:
 
-Select Mount Path: Choose the mount path from the dropdown list.
-Confirm Deletion: Ensure all data is deleted from the share and unmounted from each host.
-Provide Justification: State the business justification for deletion.
-Request Approval: Submit the request. You'll receive notification via email.
-Thank you for using our portal. If you encounter any issues or have questions, please contact our support team for assistance.
+- Search for Share: Enter the mount path of the share you wish to manage. The dropdown will show you the list of mount paths; please select the appropriate one. If not found, kindly provide the last part after :/volume_name/qtree_name.
+
+- Confirm Deletion: Ensure all data is deleted from the share and unmounted from each host.
+
+- Provide Justification: State the business justification for deletion.
+
+- Request Approval: Submit the request. You'll receive notification via email.
+
+Thank you for using our portal. If you encounter any issues or have questions, please contact abc@gmail.com. 
