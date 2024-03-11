@@ -1,0 +1,37 @@
+User Manual: Portal Features
+
+Welcome to the user manual for our portal, designed to facilitate efficient management of client access, share creation, quota adjustments, and share deletion. Below are detailed instructions for each feature:
+
+1. Add/Remove Client Access:
+
+This feature allows you to manage client access to shares. Follow these steps:
+
+Search for Share: Enter the mount path of the share you wish to manage. If not found, specify the volume and qtree name.
+View Current Clients: See the current list of clients with access to the share.
+Options: Choose to add or remove a client.
+Add Client: Provide the hostname/IP/subnet and specify read or write access. Include a business justification. A request will be raised for admin approval, and you will be notified via email upon approval.
+2. Create Share:
+
+This feature enables you to create a new share. Here's how:
+
+Select Site and Vertical: Choose the site and vertical for the new share.
+Provide Details: Name the share, specify its capacity, and list the hostnames/clients/ips/subnets to be attached. Define access configurations.
+Additional Information: Provide use case, business justification, primary owner, and secondary owner (which can be a team mailing list).
+Request Approval: Submit the request. Upon admin approval, you'll receive the mount path via email.
+3. Quota Increase:
+
+Use this feature to increase the quota of a share. Here's what to do:
+
+Select Mount Path: Choose the mount path from the dropdown list.
+View Current Usage: See the current usage of the selected share.
+Enter Extra Amount: Specify the additional amount in GB and provide a business justification.
+Request Approval: Submit the request. After admin approval, you'll be notified.
+4. Delete Share:
+
+This feature allows you to delete unused shares. Follow these steps:
+
+Select Mount Path: Choose the mount path from the dropdown list.
+Confirm Deletion: Ensure all data is deleted from the share and unmounted from each host.
+Provide Justification: State the business justification for deletion.
+Request Approval: Submit the request. You'll receive notification via email.
+Thank you for using our portal. If you encounter any issues or have questions, please contact our support team for assistance.
