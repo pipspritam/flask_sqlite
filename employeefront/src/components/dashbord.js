@@ -1,7 +1,6 @@
 import React from "react";
-import { Grid, Typography, Link, Paper } from "@mui/material";
+import { Grid, Typography, Button, Paper } from "@mui/material";
 import serverSVG from "./server.svg";
-
 
 const firstQs = [
   "Capacity Metrics",
@@ -46,15 +45,10 @@ function Dashboard() {
                   </Typography>
                 </div>
                 <div>
-                  <Link
-                    href="/"
-                    underline="none"
+                  <Button
+                    variant="outlined"
                     sx={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      border: "1px solid #048888d3",
-                      borderRadius: 4,
-                      p: "8px 16px",
+                      borderColor: "#048888d3",
                       color: "#048888d3",
                       "&:hover": {
                         backgroundColor: "#048888d3",
@@ -63,7 +57,7 @@ function Dashboard() {
                     }}
                   >
                     Manage Access
-                  </Link>
+                  </Button>
                 </div>
               </div>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "50%" }}>
